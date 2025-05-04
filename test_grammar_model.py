@@ -142,7 +142,7 @@ def main():
                 print('=' * 100 + '\n')
     else:
         while True:
-            enter = input('Enter text to be corrected, or "Exit" to end...')
+            enter = input('Enter text to be corrected, or "Exit" to end...\n')
             if enter == 'Exit':
                 break
             else:
