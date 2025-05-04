@@ -71,10 +71,11 @@ def main():
     print("Collecting data from hugging face...")
 
     # Data source: C4_200M from kaggle: https://www.kaggle.com/datasets/felixstahlberg/the-c4-200m-dataset-for-gec
-    dataset = load_dataset("liweili/c4_200m", split="train", streaming=True, trust_remote_code=True).take(total)
-    ds = dataset.shuffle(seed=42, buffer_size=10_000)
-
+    dataset = load_dataset("liweili/c4_200m", split="train", streaming=True, trust_remote_code=True)
+    shuffled_dataset = dataset.shuffle(seed=42, buffer_size=10000)
+    ds = shuffled_dataset.take(total)
     print("Data collected, splitting...")
+
     # Generating testing data
     test_data = list(ds.take(test_size))
     generate_dataset(test_data, 'test_data')
@@ -84,7 +85,7 @@ def main():
     training_data = list(ds.skip(test_size))
     generate_dataset(training_data, 'training_data')
     print("Training data generated.")
-    print('='*100)
+    print('=' * 100)
 
 if __name__ == '__main__':
     main()
