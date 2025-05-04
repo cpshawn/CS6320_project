@@ -1,4 +1,6 @@
 import json
+import random
+
 from datasets import load_dataset
 
 ####################################################################################################
@@ -72,7 +74,7 @@ def main():
 
     # Data source: C4_200M from kaggle: https://www.kaggle.com/datasets/felixstahlberg/the-c4-200m-dataset-for-gec
     dataset = load_dataset("liweili/c4_200m", split="train", streaming=True, trust_remote_code=True)
-    shuffled_dataset = dataset.shuffle(seed=42, buffer_size=10000)
+    shuffled_dataset = dataset.shuffle(seed=random.randint(0, 2**32 - 1), buffer_size=10000)
     ds = shuffled_dataset.take(total)
     print("Data collected, splitting...")
 
