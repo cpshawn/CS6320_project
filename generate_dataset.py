@@ -12,7 +12,7 @@ from datasets import load_dataset
 ####################################################################################################
 
 
-# For a total of 500 examples, I split the examples into 80% training data, 10% test data and 10% validation data
+# For a total of 500 examples, I split the examples into 80% of training data and 20% of test data
 total = 500
 train_size = int(total * 0.8)
 test_size = total - train_size
