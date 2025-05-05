@@ -1,4 +1,4 @@
-# CS 6320.001 Project Report   
+# CS 6320.001 Project
 ### Shawn Pan  
 
 ### 1. Goal:
